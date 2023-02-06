@@ -1,7 +1,6 @@
 include:
   - project: 'claysolutions/devops/gitlab-ci-templates'
-    ref: v21
-    file: '/docker.gitlab-ci.yml'
+    file: '/releases/docker-1.gitlab-ci.yml'
 
 stages:
   - build
@@ -32,7 +31,6 @@ build_image:clp-acc:
   tags: ["clp-acc-devops"]
   variables:
     KANIKO_CONTAINER_REGISTRY: "clpacc.azurecr.io"
-    COPY_IMAGE_RUNNER_IMAGE: "clpacc.azurecr.io/generic-cd-runner:v7"
   only:
     - tags
 
@@ -41,7 +39,6 @@ promote_image:prd:
   extends: .copyImage
   tags: ["clp-prd-devops"]
   variables:
-    COPY_IMAGE_RUNNER_IMAGE: "clpprd.azurecr.io/generic-cd-runner:v7"
     SOURCE_CONTAINER_REGISTRY: "clpacc.azurecr.io"
     SOURCE_SUBSCRIPTION_ID: "3607529b-171e-4d43-8472-a3197aeb6422"
     SOURCE_CR_RG: "default-weu"
