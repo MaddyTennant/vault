@@ -1,5 +1,5 @@
 include:
-  - project: 'claysolutions/devops/gitlab-ci-templates'
+  - project: ${GITLAB_CI_TEMPLATES_DEVOPS}
     file: '/releases/docker-1.gitlab-ci.yml'
 
 stages:
