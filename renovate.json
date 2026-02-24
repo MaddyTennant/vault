@@ -1,0 +1,14 @@
+{
+  "extends": ["config:base"],
+  "docker": {
+    "enabled": true
+  },
+  "branchPrefix": "renovate-",
+  "packageRules": [
+    {
+      "managers": ["dockerfile"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": false
+    }
+  ]
+}
